@@ -1,0 +1,15 @@
+doctype html
+html
+    head
+        title #{Genre}
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    style
+        include ../css/allmovies.css   
+body
+    include ../partials/header
+
+    div#movies 
+    h1 All #{Genre} Movies 
+    for movie in movies
+        a(href="/allmovies/" + movie._id) #{movie.Title}
+        br

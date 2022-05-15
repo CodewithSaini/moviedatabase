@@ -1,0 +1,21 @@
+div#header 
+    a(class= "button1" href="/") Home &nbsp
+    |
+    a(class= "button1" href="/allmovies") Movies &nbsp
+    |
+    a(class= "button1" href="/search") Search &nbsp
+    |
+    a(class= "button1" href="/addmovie") Add Movie &nbsp
+    |
+    div(class="dropdown")
+        if(loggedin)
+            button(class="dropbtn") #{username}
+        else
+            button(class="dropbtn") User
+        div(class="dropdown-content")
+            if(loggedin)
+                a(href="/profile") My profile
+                a(href="/alluser") Other users
+                button(class="button4" type="button" id="logoutButton") Logout 
+            else
+                a(href="/profile") Login/Signup

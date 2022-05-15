@@ -1,0 +1,40 @@
+doctype html
+html
+    head
+        title My Profile
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    style   
+        include ../css/profile.css
+body
+    include ../partials/header
+    h1 Welcome #{username}
+    div#notification(class="div3") 
+        h2 Notifications:
+        if(loggedin)
+            ol
+                each notification in Notification
+                    li #{notification}
+    div#user 
+    h2 Review Added:
+    div#review
+        each review in reviews
+            a(href="/reviews/"+review._id) #{review.movieTitle +"    -    " + review.Score+ "/10     -    " +review.Summary}
+            br
+    br
+    h2 Movies you have watched:
+    for movie in Watchlist
+        a(href="/allmovies/"+movie.id) #{movie.Title}
+        br
+    h2 People you follow:
+    for people in Followlist
+        a(href="/"+people) #{people}
+        br
+    h2 User you follow:
+    for user in FollowUser
+        a(href="/alluser/"+user.id) #{user.Name}     
+        br   
+    
+    
+    
+
+    script(src="/client-side.js")   

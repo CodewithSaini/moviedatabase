@@ -1,0 +1,70 @@
+doctype html
+html
+    head
+        title #{movie.Title}
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    style
+        include ../css/movie.css
+body
+    include ../partials/header
+
+    div#movie 
+    if(movie.Poster)
+        img(src=movie.Poster)
+    h1 #{movie.Title}
+    button(type="button" id="watchlistButton") Add to your Watchlist 
+    button(type="button" id="removewButton") Remove from your Watchlist 
+    h3 Year Released: #{movie.Year} Runtime: #{movie.Runtime}
+    if(movie.Plot)
+        p Plot: #{movie.Plot}
+    if(movie.Genre)
+        h4 Genre:
+            for genre in movie.Genre
+                a(href="/allgenre/"+genre) #{genre} | 
+    if(movie.Director)
+        h4 Director(s):
+        for director in movie.Director
+            a(href="/" + director) #{director} |  
+    if(movie.Writer)
+        h4 Writer(s): 
+        for writer in movie.Writer
+            a(href="/" + writer) #{writer} | 
+    h4 Actors:
+    ul
+    if(movie.Actors)
+        for actor in movie.Actors
+            a(href="/" + actor) #{actor} | 
+    
+    h3 Similar Movies:
+    each movies in smovies
+        if(movies.Title != movie.Title)
+            a(href="/allmovies/"+movies._id) #{movies.Title}
+            br
+    h3 Reviews:
+    div#reviews 
+        each review in reviews
+            a(href="/reviews/"+review._id) #{review.Score +"/10 - " + review.Summary}
+            br
+
+    if loggedin
+        h3 Add a review:
+        form#reviewform 
+        label(for="namesearch") Review Score:
+        br
+        input(type="number" id="nreview" min="0" max="10" required)
+        br
+        label(for="genreseach") Review Summary:
+        br
+        input(type="text" id="sreview" size="40" required)
+        br
+        label(for="actorsearch") Full Review:
+        br
+        textarea(rows="5" cols="50" id="freview" required)
+        br 
+        button(type="button" id="reviewButton") Add review
+    else
+        span Please 
+        a(type="button" href="/user") Login 
+        span to add a review
+
+    script(src="/client-side.js")

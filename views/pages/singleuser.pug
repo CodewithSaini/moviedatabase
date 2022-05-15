@@ -1,0 +1,27 @@
+doctype html
+html
+    head
+        title My Profile
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    style   
+        include ../css/profile.css
+body
+    include ../partials/header
+    div#user 
+        h1 #{username}
+    button(type="button" id="followUButton") Follow
+    button(type="button" id="unfollowUButton") Unfollow
+    h2 Review Added:
+    div#review
+        each review in reviews
+            a(href="/reviews/"+review._id) #{review.movieTitle +"    -    " + review.Score+ "/10     -    " +review.Summary}
+            br
+    h2 Movies you have watched:
+    for movie in Watchlist
+        a(href="/allmovies/"+movie.id) #{movie.Title}
+        br
+    
+    
+
+
+    script(src="/client-side.js")  

@@ -1,0 +1,24 @@
+doctype html
+html
+    head
+        title All Movies
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    style
+        include ../css/allmovies.css   
+body
+    include ../partials/header
+
+    div#movies 
+    h1 All Movies
+    for movie in allMovies
+        a(href="/allmovies/" + movie._id) #{movie.Title}
+        br
+    br
+    if(current>1)
+        -let url = "/allmovies?page="+ (current-1)
+        -if(qstring.length >0){url += "&"+ qstring;}
+        a(href=url) Previous
+        |
+    -url = "/allmovies?page=" +(current+1)
+    -if(qstring.length >0){url+"&"+qstring;}
+    a(href=url) Next

@@ -1,0 +1,30 @@
+doctype html
+html
+    head
+        title User
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    style   
+        include ../css/user.css
+body
+    include ../partials/header
+
+    div#user 
+        h1 Add a new User/Sign-in
+        label(for="username") User Name: 
+        br
+        input(type="textbox" id="username" maxlength="10")
+        br
+        label(for="userpassword") Password: 
+        br
+        input(type="password" id="userpassword")
+        br
+        br
+        button(class="button3"  id="signbutton") Sign-in
+        br
+        button(class="button3" id="signup") Create new User
+
+
+    p Username should be upto 10 characters only.
+    p Use alphanumeric and special characters for password for security.
+    
+    script(src="/client-side.js")

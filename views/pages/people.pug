@@ -1,0 +1,20 @@
+doctype html
+html
+    head
+        title People
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    style
+        include ../css/movie.css
+body
+    include ../partials/header 
+
+    div#people 
+    h1 #{pName}
+    button(type="button" id="followButton") Follow
+    button(type="button" id="unfollowButton") Unfollow
+    h4 Work History:
+    for movie in moviePeople
+        a(href="/allmovies/"+ movie._id) #{movie.Title}
+        br
+
+    script(src="/client-side.js")

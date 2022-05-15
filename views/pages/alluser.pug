@@ -1,0 +1,15 @@
+doctype html
+html
+    head
+        title Users
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    style   
+        include ../css/user.css
+body
+    include ../partials/header
+    div#alluser 
+    h1 User List
+    for user in Users
+        if(user.username != username)
+            a(href="/alluser/" + user._id) #{user.username}
+            br

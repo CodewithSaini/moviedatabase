@@ -1,0 +1,19 @@
+doctype html
+html
+    head
+        title Reviews
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    style   
+        include ../css/user.css
+    
+body
+    include ../partials/header 
+
+    div#review 
+        h1 Review Informations:
+        h3 Movie:
+            a(href="/allmovies/"+review.movieID ) #{review.movieTitle}
+        p Review By: #{review.username}
+        p Review Score: #{review.Score}
+        P Review Summary: #{review.Summary}
+        p Full Text: #{review.Text}

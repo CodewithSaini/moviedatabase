@@ -1,0 +1,53 @@
+doctype html
+html
+    head
+        title Add New Movie
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    style   
+        include ../css/addMovie.css
+body
+    include ../partials/header
+
+    div#addmovie 
+        h1 Add New Movie 
+        form
+            label(for="addname") Title*:
+            input(type="text" id="addname")
+            br
+            label(for="addyear") Year*:
+            input(type="text" id="addyear")
+            br
+            label(for="addactor") Actors*:
+            input(type="text" id="addactor")
+            br
+            label(for="adddirector") Director*:
+            input(type="text" id="adddirector")
+            br
+            label(for="addruntime") Runtime (in min)*:
+            input(type="text" id="addruntime")
+            br
+            label(for="addgenre") Genre:
+            input(type="text" id="addgenre")
+            br
+            label(for="addwriter") Writer:
+            input(type="text" id="addwriter")
+            br
+            label(for="addplot") Plot:
+            input(type="text" id="addplot")
+            br
+            label(for="addaward") Awards:
+            input(type="text" id="addaward")
+            br
+            label(for="addposter") Poster (URL):
+            input(type="text" id="addposter")
+            br
+            br
+            button(class="button3" id="addmoviebutton") Submit Movie
+            br 
+            br 
+            p Asterisk(*) fields are mandatory.
+            p Seperate Actor, Director, Writer and Genre with (,).
+            
+            
+    script(src='/client-side.js')
+    

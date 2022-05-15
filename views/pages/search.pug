@@ -1,0 +1,32 @@
+doctype html
+html
+    head
+        title Search Movie
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    style   
+        include ../css/search.css
+body
+    include ../partials/header
+
+    div#serch 
+        h1 Search Movie
+        br
+        label(for="namesearch") Title:
+        br
+        input(type="text" id="namesearch" size="40")
+        br
+        label(for="genreseach") Genre:
+        br
+        input(type="text" id="genresearch" size="40")
+        br
+        label(for="actorsearch") Actor:
+        br
+        input(type="text" id="actorsearch" size="40")
+        br 
+        br
+        button(class="button3" id="searchButton") Seach Movie
+    
+    div#searchedResult
+
+    script(src="/client-side.js")
+        
